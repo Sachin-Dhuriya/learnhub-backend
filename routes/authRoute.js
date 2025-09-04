@@ -9,7 +9,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import userValidator from '../validators/userValidator.js';
 
-router.post('/register', async (req, res) => {
+router.post('/register', async (req, res, next) => {
     try {
         if (!req.body) {
             return res.status(400).json({ message: 'Please fill the data..!!1' })
@@ -40,12 +40,11 @@ router.post('/register', async (req, res) => {
         res.status(200).json({ message: 'User Registered successfully..!!!', user: { name: user.name, email: user.email } })
 
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: 'Internal Server Error...!!!' })
+        next(err)
     }
 })
 
-router.post('/login', async (req, res) => {
+router.post('/login', async (req, res, next) => {
     try {
         let { email, password } = req.body;
         if (!email || !password) {
@@ -72,19 +71,17 @@ router.post('/login', async (req, res) => {
 
         res.status(200).json({ message: `Welcome Back ${userData.name}`,token })
     } catch (err) {
-        console.error(err)
-        res.status(500).json({ message: 'Internal Server Error..!!!' })
+        next(err)
     }
 })
 
-router.get("/profile",authenticate, async(req,res)=>{
+router.get("/profile",authenticate, async(req,res, next)=>{
     try {
 
         res.status(200).json({message: `Welcome ${req.user.name}`, profile: {email: req.user.email, role: req.user.role}})
         
     } catch (err) {
-        console.error(err);
-        res.status(500).json({message: 'Internal Server Error..!!!'})
+        next(err)
     }
 })
 
