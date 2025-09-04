@@ -37,5 +37,15 @@ This project provides user authentication, course management, lessons, quizzes, 
 
 ---
 
+# Auth API's
+
+| Endpoint                | Method | Description                                      | Status |
+|--------------------------|--------|--------------------------------------------------|--------|
+| `/api/auth/register`     | POST   | Register new users                               | ✅ Done |
+| `/api/auth/login`        | POST   | Verify credentials & issue JWT                   | ✅ Done |
+| `/api/auth/profile`      | GET    | Access user data via `authenticate` middleware   | ✅ Done |
+| `/api/auth/logout`       | POST   | Blacklist token / end session                    | ✅ Done |
+| Global Error Handler     | N/A    | Consistent error responses across all endpoints  | ✅ Done |
+
 
 
