@@ -1,4 +1,4 @@
-# 📚 LMS Backend (Express + Prisma + PostgreSQL)
+# 📚 LMS Backend (Express + Prisma + PostgreSQL) #Ongoing
 
 A backend API for a **Learning Management System (LMS)** built using **Node.js, Express, Prisma ORM, and PostgreSQL**.  
 This project provides user authentication, course management, lessons, quizzes, and leaderboard features.  
